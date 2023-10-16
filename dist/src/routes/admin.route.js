@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const express_2 = require("express");
 const admin_validation_1 = require("../middleware/joi_validation/admin-validation");
 const admin_controller_1 = require("../controllers/admin.controller");
+const newService_1 = require("../controllers/UC_services/newService");
 const adminRoute = express_1.default.Router();
 class AdminRouter {
     constructor() {
@@ -15,6 +16,7 @@ class AdminRouter {
     }
     adminRouter() {
         this.router.post("/login", admin_validation_1.loginAdminMiddleware, admin_controller_1.adminController.login);
+        this.router.post("/addservice", admin_validation_1.newServiceMiddleware, newService_1.serviceController.new_sevice);
         return this.router;
     }
 }

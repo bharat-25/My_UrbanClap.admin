@@ -7,3 +7,4 @@ export interface SessionAttributes {
     createdAt?: Date;
     updatedAt?: Date;
   }
+

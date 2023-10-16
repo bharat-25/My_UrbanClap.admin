@@ -7,6 +7,14 @@ const loginValidation= Joi.object({
   password: Joi.string().min(4).required(),
 });
 
+
+const new_serviceValidation= Joi.object({
+  serviceName: Joi.string().required(),
+  description: Joi.string().required(),
+  categoryId: Joi.number().required(),
+  parentId: Joi.array(),
+});
+
 const validatedata = (schema: ObjectSchema) => {
     return (req: Request, res: Response, next: NextFunction) => {
       const { error, value } = schema.validate(req.body);
@@ -20,3 +28,4 @@ const validatedata = (schema: ObjectSchema) => {
 
 export const loginAdminMiddleware = validatedata(loginValidation);
 
+export const newServiceMiddleware = validatedata(new_serviceValidation);
