@@ -62,7 +62,6 @@ class login_admins {
                     refreshToken: refresh_token.jwtID,
                     device: device,
                 });
-                console.log(adminExists.id);
                 await session_model_1.default.create({
                     adminId: adminExists.id,
                     device: device,
